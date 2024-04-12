@@ -1,0 +1,660 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .card-wrapper {
+    display: flex;
+    justify-content: space-around; /* Adjust as needed */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  }
+  
+  .card-container {
+    width: 320px;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 8px solid #fff;
+    position: relative;
+  }
+  
+  .card-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px ;
+  }
+  .card-body{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position:absolute;
+    background: #1f3d4738; 
+    backdrop-filter: blur(5px); 
+    border-radius: 15px;
+    padding:30px ;
+    color: #fff;
+    display: flex;
+    flex-direction:column ;
+    justify-content:center ;
+    transition: 1s;
+  }
+  .card-container:hover .card-body{
+    right: 0
+  }
+  
+  .card-title{ 
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: 500;
+  }
+  
+  .card-title-anika,
+  .card-description-anika {
+    margin: 0.5rem 5%;
+  }
+  
+  .card-description{
+    font-size: 16px;
+    line-height: 25px;
+    margin: 40px 0;
+    font-weight: 400;
+  }
+  
+  .card-button,
+  .view-button,
+  .status-button,
+  .apply-button {
+    color: #1f3d47;
+    background: #8fabba;
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    font-weight: 500;  
+    cursor: pointer;
+  }
+  
+  .apply-button.applied {
+    background-color: green; 
+    text-align: center;
+    width: 90%;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    margin: 0.5rem;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5E3023;
+    position: sticky;
+    top: 0;
+  
+  }
+  
+  nav .nav-title{
+    font-family: 'Samarkan';
+    font-size: 1.5rem;
+    margin: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav ul {
+    display: flex;
+  }
+  
+  nav ul li {
+    list-style: none;
+  }
+  
+  nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  nav ul li a:not(.active):hover{
+    background-color: #895737;
+  }
+  
+  nav .menu {
+    display: none;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.25rem;
+    height: 2rem;
+  }
+  
+  nav .menu span {
+    height: 0.4rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.2rem;
+  }
+  
+  .card-image-anika {
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
+  
+  .button-container {
+    display: flex;
+  }
+  
+  .button-container > a {
+    margin-right: 10px; /* Adjust as needed for spacing between buttons */
+  }
+  
+  
+  @media (max-wigth: 250px) {
+    nav .menu {
+      display: flex;
+    }
+  
+    nav {
+      flex-direction: column;
+      align-items: start;
+    }
+  
+    nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.25rem;
+    }
+  
+    nav ul.open {
+      display: flex;
+    }
+  
+    nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+  
+    nav ul li a{
+      margin: 0.2rem 0.5rem;
+    }
+  }
+  
+  @font-face {
+    font-family: 'Samarkan'; 
+    src: url('./font.TTF') format('truetype'); 
+  }
+  
+  .btn-reverse {
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text */
+  }
+  .btn-sm {
+    padding: 5px 15px;
+    font-size: 13px;
+  }
+  
+  /* Version 2 */
+  .btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    background: #000;
+    color: 895737;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    appearance: button;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .form {
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  .form {
+    max-width: 1000px;
+    margin: 25px auto;
+    background-color: #e0a891;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    margin: 0 0 5px 3px;
+  }
+  .heading {
+    margin-top: 20px;
+    text-align: center;
+    font-family: cursive;
+    font-weight: 800;
+    padding: 50 100px;
+    span {
+      font-size: 1.6em;
+    }
+      .cursive {
+    font-family: cursive;
+      }
+  
+  }
+  
+  
+  
+  .text-popup-container {
+    color:#000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    z-index: 9999;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 500px; /* Adjust the maximum width as needed */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-popup {
+    padding: 20px;
+  }
+  
+  .text-popup button.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .text-popup textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    resize: none;
+  }
+  
+  .text-popup button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  
+  .apply-button {
+    text-align: center;
+    width: 90%;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    margin: 0.5rem;
+  }
+  
+  .apply-button.applied {
+    background-color: green; 
+    text-align: center;
+    width: 90%;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    margin: 0.5rem;
+  }
+  
+  .application {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #f4f4f4;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .status {
+    background-color: #333;
+    color: #fff;
+    width: 60%;
+    padding: 20px;
+    justify-self: center;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+   
+    
+  }
+  .status-box{
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  
+  .status-applied {
+    background-color: rgb(0, 62, 128);
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  .status-approved {
+    background-color: rgb(20, 158, 75);
+    color: #201d1d;
+    border-radius: 10px;
+  }
+  
+  .status-rejected {
+    background-color: darkred;
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  /*VolunteerLanding*/
+  .card-title-anika,
+  .card-description-anika 
+  {
+    font-weight: bold;  
+    text-align: center; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .card-wrapper {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+  }
+  .card-container {
+    width: 320px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 8px solid #fff;
+    position: relative;
+    padding: 100p;
+    margin-top: 40px;
+    background-color: #9B8EA8;
+    text-align: justify;
+    font-family: Arial, sans-serif;
+  }
+  .card-image-anika{
+    width: 100%;
+    height: 600px;  
+    border-radius: 15px ;
+  }
+  .card-body{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position:absolute;
+    background: #1f3d4738; 
+    backdrop-filter: blur(5px); 
+    border-radius: 15px;
+    padding:30px ;
+    color: #1d0f0f;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction:column ;
+    justify-content:center ;
+    transition: 1s;
+  }
+  .card-container:hover .card-body{
+    right: 0
+  }
+  .card-title{   
+    font-size: 30px;
+    color: #1f0e0a;
+    font-weight: 5;
+    padding-left: 10px;
+    padding-top: 50px;  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .card-image-anika {
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
+  
+  /*VolunteerLanding*/
+  
+  /*LoginSignup*/
+  .button-container{
+    display: flexbox;
+  }
+  .button-container {
+    display: flex;
+  }
+  .button-container > a {
+    margin-right: 10px; /* Adjust as needed for spacing between buttons */
+  }
+  .btn-reverse {
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text */
+  }
+  .btn-sm {
+    padding: 5px 15px;
+    font-size: 13px;
+  }
+  .btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    background: #788E77;
+    color: #000;
+    width: 200px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-transform: none;
+    appearance: button;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .button-login,
+  .button-signup
+  {
+    appearance: button;
+    background-color: #788E77;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 30px; 
+    border: 4px solid #000; 
+    margin-top: 10px;
+    
+  }
+  .button-signup {
+    border: 4px solid #000;  
+  }
+  .card-icon{
+    height: 250px;
+    font-size: 100px; 
+    padding: 80px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /*LoginSignup*/
+  
+  
+  .card-description{
+    font-size: 16px;
+    line-height: 25px;
+    margin: 40px 0;
+    font-weight: 400;
+  }
+  
+  /* View Requirements CSS */
+  
+  .requirements-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .requirements-box {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* FAQ CSS */
+  .faq-title {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    margin-top:30px;
+    padding-bottom: -20px;
+    color:#14062D;
+  }
+  
+  .faq-wrapper {
+  display: flex;
+  height:100vh;
+  width:100vw;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  
+  }
+  
+  .accordian {
+  width: 500px;
+  
+  }
+  
+  .item {
+  background:#9B8EA8;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  }
+  
+  
+  .title {
+  color:#F0F7EE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor:pointer;
+  }
+  
+  .content {
+  color:#F0F7EE;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0,1,0,1);
+  text-align: justify;
+  }
+  
+  .content.show {
+  height:auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1,0,1,0);
+  text-align: justify;
+  }
+  
+  
+  /* Version-3 */
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 200%;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: inherit;
+  }
+  
+  .form-group .btn-block  {
+    width: 200%;
+    padding: 10px;
+    background-color: #4d2808;
+    color: rgb(240, 212, 212);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Spinner component */
+  .loadingSpinnerContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loadingSpinner {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: #000 transparent #555 transparent;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+  }
+  
